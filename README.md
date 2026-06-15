@@ -1,4 +1,4 @@
-# 🛡️ Dharmendra Kumar | HTB & THM Writeups & Walkthroughs
+# 🛡️HTB & THM Writeups & Walkthroughs
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Dharmendra%20Kumar-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/dharmstm/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-dharmstm.github.io-181717?style=flat&logo=github)](https://dharmstm.github.io/portfolio/)
@@ -85,8 +85,6 @@ If you find these writeups helpful, please **Star ⭐** this repository and **Fo
 
 ---
 
-### 🔑 SEO Keywords
-TryHackMe writeup, Hack The Box writeup, THM walkthrough, HTB walkthrough, ethical hacking writeups, penetration testing notes, eJPT writeup, CTF solutions, Linux privilege escalation guide, OSCP preparation writeups, bug bounty learning resources, Dharmendra Kumar cybersecurity
-
-### BolgWebsitet links:- 
-https://dharmstm.github.io/writeup/
+<!--
+SEO Keywords: TryHackMe writeup, Hack The Box writeup, THM walkthrough, HTB walkthrough, ethical hacking writeups, penetration testing notes, eJPT writeup, CTF solutions, Linux privilege escalation guide, OSCP preparation writeups, bug bounty learning resources, dharmstm, dharmendrastm, dharmendracyberhack, Dharmendra Kumar cybersecurity
+-->
