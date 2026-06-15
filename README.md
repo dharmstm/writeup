@@ -2,11 +2,32 @@
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Dharmendra%20Kumar-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/dharmstm/)
 [![Portfolio](https://img.shields.io/badge/Portfolio-dharmstm.github.io-181717?style=flat&logo=github)](https://dharmstm.github.io/portfolio/)
-[![eJPTv2](https://img.shields.io/badge/Certified-eJPTv2-success?style=flat)]()
+[![Blog-site](https://img.shields.io/badge/Blog-site-success?style=flat)](https://dharmstm.github.io/writeup/)
 [![CVE](https://img.shields.io/badge/CVEs-2x%20Published-red?style=flat)]()
 
 ## 👋 About Me
-Hi, I'm **Dharmendra Kumar (dharmstm)** — Penetration Tester, Security Researcher & **eJPTv2 Certified** professional, specializing in **Vulnerability Assessment & Penetration Testing (VAPT)**, Web Application Security, and Offensive Security.
+💬 **Hello Members,**
+
+Hi, I’m **Dharmendra Kumar (dharmstm)**, an **eJPT v2 Certified Cybersecurity Enthusiast, Junior Penetration Tester, and Ethical Hacker** with a strong focus on **Web Application Security** and **Vulnerability Assessment & Penetration Testing (VAPT)**.
+
+I actively enhance my skills through real-world security testing, vulnerability research, bug bounty programs, and Capture The Flag (CTF) challenges. My hands-on experience includes working with **Burp Suite, Nmap, Metasploit, Wireshark, OWASP Top 10**, as well as **Python and C** for automation and security research.
+
+### CVE Credits
+
+* CVE-2026-30502
+* CVE-2026-30503
+
+### Security Recognition
+
+* NASA Vulnerability Disclosure Program – Hall of Fame
+* Ulta Beauty Security Program – Hall of Fame
+* Dreamscape Security Program – Hall of Fame
+
+These recognitions reflect my commitment to responsible vulnerability disclosure and helping organizations strengthen their security posture.
+
+I am passionate about **ethical hacking, penetration testing, vulnerability research, and bug bounty hunting**. To continuously improve my practical skills, I actively participate in platforms such as Hack The Box and TryHackMe.
+
+I enjoy solving complex security challenges, learning emerging technologies, and collaborating with the cybersecurity community. Looking forward to connecting with fellow professionals and contributing to a safer digital world. 🔐
 
 🏆 **3× Hall of Fame** — NASA VDP, Ulta Beauty, Dreamscape Networks  
 🔐 **2 Published CVEs** — CVE-2026-30502 & CVE-2026-30503 (XSS in OpenKM v6.3.12)  
