@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO Meta -->
+  <title>Cybersecurity Writeups | Dharmendra Kumar (dharmstm) — HTB & THM Walkthroughs</title>
+  <meta name="description" content="Detailed penetration testing writeups and CTF walkthroughs for HackTheBox (HTB) and TryHackMe (THM) by Dharmendra Kumar — eJPTv2 certified security researcher with 3x Hall of Fame recognition." />
+  <meta name="keywords" content="HackTheBox writeup, TryHackMe walkthrough, HTB writeup, THM CTF, penetration testing, ethical hacking, eJPT, OSCP prep, Dharmendra Kumar, dharmstm" />
+  <meta name="author" content="Dharmendra Kumar" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Cybersecurity Writeups | Dharmendra Kumar" />
+  <meta property="og:description" content="HTB & THM writeups by dharmstm — eJPTv2 certified, 3x Hall of Fame, 2x CVE published. Step-by-step penetration testing walkthroughs." />
+  <meta property="og:url" content="https://dharmstm.github.io/writeup/" />
+  <meta property="og:site_name" content="Cybersecurity Writeups by dharmstm" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cybersecurity Writeups | dharmstm" />
+  <meta name="twitter:description" content="Detailed HTB & THM writeups by Dharmendra Kumar — penetration tester, eJPTv2, 3x Hall of Fame." />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dharmendra Kumar",
+    "alternateName": "dharmstm",
+    "url": "https://dharmstm.github.io/portfolio/",
+    "sameAs": [
+      "https://www.linkedin.com/in/dharmstm/",
+      "https://github.com/dharmstm"
+    ],
+    "jobTitle": "Penetration Tester & Security Researcher",
+    "description": "eJPTv2 certified penetration tester with 3x Hall of Fame and 2 published CVEs"
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== LOADING SCREEN ===== -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-hex"></div>
+      <div class="loader-text">
+        <span class="loader-line">Initializing secure connection...</span>
+        <span class="loader-line">Loading writeups...</span>
+        <span class="loader-line" id="loader-pct">0%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PARTICLES CANVAS ===== -->
+  <canvas id="particles"></canvas>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        <span class="logo-bracket">&lt;</span>dharmstm<span class="logo-bracket">/&gt;</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#writeups" class="nav-link">Writeups</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <a href="https://dharmstm.github.io/portfolio/" target="_blank" class="nav-cta">Portfolio</a>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section id="hero">
+    <div class="terminal-banner">
+      <div class="terminal-bar">
+        <span class="t-dot red"></span>
+        <span class="t-dot yellow"></span>
+        <span class="t-dot green"></span>
+        <span class="t-title">dharmstm@kali:~$</span>
+      </div>
+      <div class="terminal-body">
+        <p class="t-cmd"><span class="t-prompt">$ </span>whoami</p>
+        <p class="t-out">Dharmendra Kumar — Penetration Tester | eJPTv2 | Security Researcher</p>
+        <p class="t-cmd"><span class="t-prompt">$ </span>ls ./achievements/</p>
+        <p class="t-out">nasa_hof.txt &nbsp; ulta_hof.txt &nbsp; dreamscape_hof.txt &nbsp; CVE-2026-30502.txt &nbsp; CVE-2026-30503.txt</p>
+        <p class="t-cmd"><span class="t-prompt">$ </span>cat mission.txt</p>
+        <p class="t-out typing-text" id="typingText"></p>
+        <p class="t-cursor">▊</p>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-tag">// Cybersecurity Writeups</div>
+      <h1 class="hero-title">
+        <span class="title-line">Hack. Learn.</span>
+        <span class="title-line accent">Document. Repeat.</span>
+      </h1>
+      <p class="hero-sub">
+        Fully detailed, step-by-step penetration testing writeups for
+        <strong>Hack The Box</strong> and <strong>TryHackMe</strong> —
+        from initial recon to root flag capture.
+      </p>
+      <div class="hero-badges">
+        <span class="badge badge-cert"><i class="fa-solid fa-shield-halved"></i> eJPTv2 Certified</span>
+        <span class="badge badge-hof"><i class="fa-solid fa-trophy"></i> 3× Hall of Fame</span>
+        <span class="badge badge-cve"><i class="fa-solid fa-bug"></i> 2× CVE Published</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#writeups" class="btn btn-primary"><i class="fa-solid fa-terminal"></i> Browse Writeups</a>
+        <a href="https://dharmstm.github.io/portfolio/" target="_blank" class="btn btn-outline"><i class="fa-solid fa-arrow-up-right-from-square"></i> View Portfolio</a>
+      </div>
+    </div>
+
+    <!-- Stat counters -->
+    <div class="hero-stats">
+      <div class="stat-card">
+        <span class="stat-num" data-target="5">0</span>
+        <span class="stat-label">Writeups</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" data-target="3">0</span>
+        <span class="stat-label">Hall of Fame</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" data-target="2">0</span>
+        <span class="stat-label">CVEs</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num" data-target="10">0</span>
+        <span class="stat-label">Tools Built</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// about.txt</span>
+        <h2 class="section-title">Who is <span class="accent">dharmstm</span>?</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I'm <strong>Dharmendra Kumar</strong>, a cybersecurity professional specializing in
+            offensive security, web application penetration testing, and vulnerability research.
+            Currently interning as a Penetration Tester at <strong>Terra System Labs</strong>.
+          </p>
+          <p>
+            I document every machine I solve — not just to track progress, but to help the
+            next person learn the methodology. Each writeup walks you through my full
+            thought process: enumeration, exploitation, privilege escalation, and lessons learned.
+          </p>
+          <p>
+            Recognized in vulnerability disclosure programs by <strong>NASA</strong>,
+            <strong>Ulta Beauty</strong>, and <strong>Dreamscape Networks</strong>, and have published
+            two CVEs in OpenKM — CVE-2026-30502 (Reflected XSS) and CVE-2026-30503 (Stored XSS).
+          </p>
+          <div class="about-links">
+            <a href="https://www.linkedin.com/in/dharmstm/" target="_blank" class="social-pill">
+              <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/dharmstm" target="_blank" class="social-pill">
+              <i class="fab fa-github"></i> GitHub
+            </a>
+            <a href="mailto:dharmendracyberhack@gmail.com" class="social-pill">
+              <i class="fa-solid fa-envelope"></i> Email
+            </a>
+          </div>
+        </div>
+        <div class="about-certs reveal">
+          <div class="cert-card">
+            <i class="fa-solid fa-certificate"></i>
+            <div>
+              <strong>eJPT v2</strong>
+              <span>eLearnSecurity Junior Penetration Tester</span>
+            </div>
+          </div>
+          <div class="cert-card">
+            <i class="fa-solid fa-trophy"></i>
+            <div>
+              <strong>NASA Hall of Fame</strong>
+              <span>Vulnerability Disclosure Program — Bugcrowd</span>
+            </div>
+          </div>
+          <div class="cert-card">
+            <i class="fa-solid fa-trophy"></i>
+            <div>
+              <strong>Ulta Beauty Hall of Fame</strong>
+              <span>Security Program — Bugcrowd</span>
+            </div>
+          </div>
+          <div class="cert-card">
+            <i class="fa-solid fa-trophy"></i>
+            <div>
+              <strong>Dreamscape Hall of Fame</strong>
+              <span>Security Program — Bugcrowd</span>
+            </div>
+          </div>
+          <div class="cert-card cve-card">
+            <i class="fa-solid fa-bug"></i>
+            <div>
+              <strong>CVE-2026-30502 & 30503</strong>
+              <span>XSS in OpenKM v6.3.12 — MITRE Published</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WRITEUPS ===== -->
+  <section id="writeups" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// ls ./writeups/</span>
+        <h2 class="section-title">Featured <span class="accent">Writeups</span></h2>
+        <p class="section-sub">Fully documented walkthroughs — recon to root flag.</p>
+      </div>
+
+      <!-- Search + Filter -->
+      <div class="writeup-controls reveal">
+        <div class="search-wrap">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="searchBox" placeholder="Search writeups..." autocomplete="off" />
+        </div>
+        <div class="filter-btns">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="THM">TryHackMe</button>
+          <button class="filter-btn" data-filter="HTB">HackTheBox</button>
+        </div>
+      </div>
+
+      <!-- Cards Grid -->
+      <div class="writeups-grid" id="writeupsGrid">
+
+        <!-- Boiler CTF -->
+        <div class="writeup-card reveal" data-platform="THM" data-title="Boiler CTF" data-tags="ftp command-injection ssh privesc linux">
+          <div class="card-header">
+            <div class="card-platform thm">
+              <i class="fa-solid fa-crosshairs"></i> TryHackMe
+            </div>
+            <div class="card-diff medium">Medium</div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Boiler CTF</h3>
+            <p class="card-desc">A CTF-style machine testing service enumeration, anonymous FTP access, command injection via a CMS, and Linux privilege escalation through credential discovery.</p>
+            <div class="card-tags">
+              <span class="tag">FTP</span>
+              <span class="tag">Command Injection</span>
+              <span class="tag">SSH</span>
+              <span class="tag">Linux Privesc</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="card-meta">
+              <span><i class="fa-regular fa-user"></i> dharmstm</span>
+              <span><i class="fa-regular fa-clock"></i> ~45 min</span>
+            </div>
+            <button class="btn-read" data-pdf="https://github.com/dharmstm/writeup/blob/main/THM/Boiler-THM.pdf" data-title="Boiler CTF — TryHackMe Writeup">
+              <i class="fa-solid fa-file-pdf"></i> Read Writeup
+            </button>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- GoldenEye -->
+        <div class="writeup-card reveal" data-platform="THM" data-title="GoldenEye" data-tags="web pop3 hydra exiftool cyberchef reverse-shell privesc">
+          <div class="card-header">
+            <div class="card-platform thm">
+              <i class="fa-solid fa-crosshairs"></i> TryHackMe
+            </div>
+            <div class="card-diff medium">Medium</div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">GoldenEye</h3>
+            <p class="card-desc">Full chain exploitation covering web enumeration, POP3 email access, Hydra brute-forcing, metadata analysis with ExifTool, CyberChef decoding, and kernel privilege escalation.</p>
+            <div class="card-tags">
+              <span class="tag">POP3</span>
+              <span class="tag">Hydra</span>
+              <span class="tag">ExifTool</span>
+              <span class="tag">Reverse Shell</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="card-meta">
+              <span><i class="fa-regular fa-user"></i> dharmstm</span>
+              <span><i class="fa-regular fa-clock"></i> ~60 min</span>
+            </div>
+            <button class="btn-read" data-pdf="https://github.com/dharmstm/writeup/blob/main/THM/Goldeneye%20THM.pdf" data-title="GoldenEye — TryHackMe Writeup">
+              <i class="fa-solid fa-file-pdf"></i> Read Writeup
+            </button>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- Road THM -->
+        <div class="writeup-card reveal" data-platform="THM" data-title="Road" data-tags="web upload bypass mongodb privesc">
+          <div class="card-header">
+            <div class="card-platform thm">
+              <i class="fa-solid fa-crosshairs"></i> TryHackMe
+            </div>
+            <div class="card-diff medium">Medium</div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Road</h3>
+            <p class="card-desc">Exploits a file upload bypass to gain a reverse shell, then pivots through MongoDB credentials and abuses sudo permissions to escalate to root on a real-world style web server.</p>
+            <div class="card-tags">
+              <span class="tag">File Upload</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Sudo Abuse</span>
+              <span class="tag">Web Enum</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="card-meta">
+              <span><i class="fa-regular fa-user"></i> dharmstm</span>
+              <span><i class="fa-regular fa-clock"></i> ~50 min</span>
+            </div>
+            <button class="btn-read" data-pdf="https://github.com/dharmstm/writeup/blob/main/THM/Road%20THM.pdf" data-title="Road — TryHackMe Writeup">
+              <i class="fa-solid fa-file-pdf"></i> Read Writeup
+            </button>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- StuxCTF -->
+        <div class="writeup-card reveal" data-platform="THM" data-title="StuxCTF" data-tags="crypto lfi deserialization nmap privesc web">
+          <div class="card-header">
+            <div class="card-platform thm">
+              <i class="fa-solid fa-crosshairs"></i> TryHackMe
+            </div>
+            <div class="card-diff hard">Hard</div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">StuxCTF</h3>
+            <p class="card-desc">A challenging room requiring source code analysis, cryptographic puzzle solving, file inclusion testing, insecure deserialization exploitation, and multi-step Linux privilege escalation.</p>
+            <div class="card-tags">
+              <span class="tag">Cryptography</span>
+              <span class="tag">LFI</span>
+              <span class="tag">Deserialization</span>
+              <span class="tag">Source Review</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="card-meta">
+              <span><i class="fa-regular fa-user"></i> dharmstm</span>
+              <span><i class="fa-regular fa-clock"></i> ~90 min</span>
+            </div>
+            <button class="btn-read" data-pdf="https://github.com/dharmstm/writeup/blob/main/THM/Stuxctf-THM.pdf" data-title="StuxCTF — TryHackMe Writeup">
+              <i class="fa-solid fa-file-pdf"></i> Read Writeup
+            </button>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+        <!-- Meow HTB -->
+        <div class="writeup-card reveal" data-platform="HTB" data-title="Meow" data-tags="telnet enumeration easy beginner htb">
+          <div class="card-header">
+            <div class="card-platform htb">
+              <i class="fa-solid fa-cube"></i> HackTheBox
+            </div>
+            <div class="card-diff easy">Easy</div>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Meow</h3>
+            <p class="card-desc">A beginner-friendly Starting Point machine focused on the fundamentals of network enumeration and Telnet exploitation — perfect for learning Nmap and getting your first HTB root.</p>
+            <div class="card-tags">
+              <span class="tag">Telnet</span>
+              <span class="tag">Nmap</span>
+              <span class="tag">Enumeration</span>
+              <span class="tag">Starting Point</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="card-meta">
+              <span><i class="fa-regular fa-user"></i> dharmstm</span>
+              <span><i class="fa-regular fa-clock"></i> ~20 min</span>
+            </div>
+            <button class="btn-read" data-pdf="https://github.com/dharmstm/writeup/blob/main/HTB/Meow-HTB.pdf" data-title="Meow — HackTheBox Writeup">
+              <i class="fa-solid fa-file-pdf"></i> Read Writeup
+            </button>
+          </div>
+          <div class="card-glow"></div>
+        </div>
+
+      </div>
+
+      <!-- No results -->
+      <div class="no-results hidden" id="noResults">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <p>No writeups found. Try a different search or filter.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// skills --list</span>
+        <h2 class="section-title">Tools & <span class="accent">Skills</span></h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-item reveal"><i class="fa-solid fa-network-wired"></i><span>Nmap</span></div>
+        <div class="skill-item reveal"><i class="fa-solid fa-spider"></i><span>Burp Suite</span></div>
+        <div class="skill-item reveal"><i class="fa-solid fa-bomb"></i><span>Metasploit</span></div>
+        <div class="skill-item reveal"><i class="fa-solid fa-key"></i><span>Hydra</span></div>
+        <div class="skill-item reveal"><i class="fa-solid fa-folder-open"></i><span>Gobuster</span></div>
+        <div class="skill-item reveal"><i class="fa-solid fa-wave-square"></i><span>Wireshark</span></div>
+        <div class="skill-item reveal"><i class="fa-brands fa-python"></i><span>Python</span></div>
+        <div class="skill-item reveal"><i class="fa-brands fa-linux"></i><span>Kali Linux</span></div>
+        <div class="skill-item reveal"><i class="fa-solid fa-code"></i><span>CyberChef</span></div>
+        <div class="skill-item reveal"><i class="fa-solid fa-shield"></i><span>OWASP Top 10</span></div>
+        <div class="skill-item reveal"><i class="fa-solid fa-bug"></i><span>XSS / SQLi</span></div>
+        <div class="skill-item reveal"><i class="fa-solid fa-crown"></i><span>Privilege Esc.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT / FOOTER ===== -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">// contact --info</span>
+        <h2 class="section-title">Let's <span class="accent">Connect</span></h2>
+      </div>
+      <div class="contact-grid reveal">
+        <a href="https://www.linkedin.com/in/dharmstm/" target="_blank" class="contact-card">
+          <i class="fab fa-linkedin"></i>
+          <span>LinkedIn</span>
+          <small>/in/dharmstm</small>
+        </a>
+        <a href="https://github.com/dharmstm" target="_blank" class="contact-card">
+          <i class="fab fa-github"></i>
+          <span>GitHub</span>
+          <small>@dharmstm</small>
+        </a>
+        <a href="mailto:dharmendracyberhack@gmail.com" class="contact-card">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Email</span>
+          <small>dharmendracyberhack@gmail.com</small>
+        </a>
+        <a href="https://dharmstm.github.io/portfolio/" target="_blank" class="contact-card">
+          <i class="fa-solid fa-globe"></i>
+          <span>Portfolio</span>
+          <small>dharmstm.github.io</small>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <span class="footer-logo">&lt;dharmstm/&gt;</span>
+      <p>© 2026 Dharmendra Kumar. Built for the security community. Hack responsibly.</p>
+      <p class="footer-note">All writeups are for educational purposes only. Only attack systems you have explicit permission to test.</p>
+    </div>
+  </footer>
+
+  <!-- ===== PDF MODAL ===== -->
+  <div id="pdfModal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-backdrop"></div>
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Writeup</h3>
+        <button class="modal-close" id="modalClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="modal-body">
+        <iframe id="pdfFrame" src="" title="PDF Writeup Viewer" allowfullscreen></iframe>
+      </div>
+      <div class="modal-footer">
+        <a id="modalDownload" href="#" target="_blank" class="btn btn-outline btn-sm">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Open on GitHub
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== BACK TO TOP ===== -->
+  <button id="backToTop" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <script src="script.js"></script>
+</body>
+</html>
